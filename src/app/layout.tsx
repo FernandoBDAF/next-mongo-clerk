@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider signInForceRedirectUrl={"/"} signUpForceRedirectUrl={"/"} afterSignOutUrl="/sign-in">
+    <ClerkProvider >
     {/* <ClerkProvider> */}
       <html lang="en">
         <body>

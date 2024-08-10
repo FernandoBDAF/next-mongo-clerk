@@ -6,7 +6,7 @@ import { AppUser, IAppUser } from "@/models/appUser";
 export async function repoGetUser(clerkId: string, email: string) {
   try {
     await connectMongoDB();
-    const user: IAppUser = await AppUser.findOne({
+    const user: (IAppUser | null) = await AppUser.findOne({
       clerkId,
     });
 
