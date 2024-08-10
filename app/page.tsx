@@ -1,4 +1,4 @@
-import { repoGetUser } from "@/app/api/users";
+import { repoGetUser } from "./api/users";
 import { currentUser } from "@clerk/nextjs/server";
 
 export default async function Page() {
@@ -6,10 +6,12 @@ export default async function Page() {
   if (!user) {
     return;
   }
-  const dbUser = await repoGetUser(user.id, user.emailAddresses[0].emailAddress);
+  const dbUser = await repoGetUser(
+    user.id,
+    user.emailAddresses[0].emailAddress
+  );
 
   return (
-
     <div className="flex flex-col self-center place-self-center justify-self-center justify-between items-center w-full my-4 gap-4 md:flex-row md:gap-16 md:justify-center">
       <h1>{JSON.stringify(user)}</h1>
       <h1>{JSON.stringify(dbUser)}</h1>

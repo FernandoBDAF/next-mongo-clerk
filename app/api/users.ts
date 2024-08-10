@@ -1,12 +1,12 @@
 // "use server"
 
-import { connectMongoDB } from "@/libs/mongodb";
-import { AppUser, IAppUser } from "@/models/appUser";
+import { connectMongoDB } from "../../libs/mongodb";
+import { AppUser, IAppUser } from "../../models/appUser";
 
 export async function repoGetUser(clerkId: string, email: string) {
   try {
     await connectMongoDB();
-    const user: (IAppUser | null) = await AppUser.findOne({
+    const user: IAppUser | null = await AppUser.findOne({
       clerkId,
     });
 

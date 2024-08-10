@@ -1,5 +1,8 @@
-import { connectMongoDB } from "@/libs/mongodb";
-import { IMoneyTransaction, MoneyTransaction } from "@/models/moneyTransaction";
+import { connectMongoDB } from "../../libs/mongodb";
+import {
+  IMoneyTransaction,
+  MoneyTransaction,
+} from "../../models/moneyTransaction";
 
 type createTransactionReq = {
   clerkId: string;

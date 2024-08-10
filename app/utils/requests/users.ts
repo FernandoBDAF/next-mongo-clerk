@@ -1,6 +1,6 @@
 "use server";
 
-import { repoAddRemittee } from "@/app/api/users";
+import { repoAddRemittee } from "../../api/users";
 
 export const addRemittee = async (clerkId: string, email: string) => {
   try {

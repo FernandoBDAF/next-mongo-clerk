@@ -1,10 +1,9 @@
 import "server-only";
 
-
 import {
   IMoneyTransaction,
   transactionEntity,
-} from "@/models/moneyTransaction";
+} from "../../../models/moneyTransaction";
 import { auth } from "@clerk/nextjs/server";
 
 export const createMoneyTransaction = async (
@@ -17,14 +16,17 @@ export const createMoneyTransaction = async (
     );
   }
   try {
-    const res = await fetch(`${process.env.NEXT_PULIC_API_URL}/api/money-transaction`, {
-      method: "POST",
-      body: JSON.stringify(transaction),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PULIC_API_URL}/api/money-transaction`,
+      {
+        method: "POST",
+        body: JSON.stringify(transaction),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Error registering the transaction");
@@ -64,14 +66,11 @@ export const getMoneyTransactions = async (clerkId: string) => {
 export const getMoneyTransaction = async (id: string) => {
   const token = await auth().getToken();
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PULIC_API_URL}/${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const res = await fetch(`${process.env.NEXT_PULIC_API_URL}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     if (!res.ok) {
       throw new Error("Error fetching transaction");

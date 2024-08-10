@@ -1,7 +1,7 @@
 import {
   IMoneyTransaction,
   TransactionEntity,
-} from "@/models/moneyTransaction";
+} from "../../models/moneyTransaction";
 import { getMoneyTransactions } from "./requests/moneyTransaction";
 
 export const getBalance = async (origin: TransactionEntity, userId: string) => {
