@@ -3,9 +3,18 @@ import { currentUser } from "@clerk/nextjs/server";
 
 export default async function Page() {
   const user = await currentUser();
+
   if (!user) {
-    return;
+    return (
+      <h1>
+        Welcome! Please{" "}
+        <span>
+          <a href="/sign-in">sign in.</a>
+        </span>
+      </h1>
+    );
   }
+
   const dbUser = await repoGetUser(
     user.id,
     user.emailAddresses[0].emailAddress
