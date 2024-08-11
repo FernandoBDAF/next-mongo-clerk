@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const mongoKey = process.env.DATABASE_URI;
+const mongoKey = process.env.NEXT_PUBLIC_DATABASE_URI;
 
 if (!mongoKey) {
   throw new Error('Please define the MONGODB_URI environment variable inside .env.local');

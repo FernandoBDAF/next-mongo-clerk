@@ -1,4 +1,4 @@
-import { connectMongoDB } from "../../libs/mongodb";
+import { connectMongoDB } from "../libs/mongodb";
 import {
   IMoneyTransaction,
   MoneyTransaction,
